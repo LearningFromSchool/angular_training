@@ -1,0 +1,158 @@
+<div ng-controller="myCtrl">
+    <p>First Name: <input type="text" ng-model="firstName"></p>
+    <p>Last Name: <input type="text" ng-model="lastName"></p>
+    <h1>Hello {{firstName + " " + lastName}}!</h1>
+    <p>{{message}}</p>
+    <!--<ul ng-repeat="ninj in ninjas | orderBy:'-belt'">
+        <li>{{ninj.name}}</li>
+    </ul>-->
+    <input type="text" ng-model="searchText"> 
+    <ul>
+        <li ng-repeat="ninj in ninjas | filter:searchText">
+            {{ninj.name}}
+        </li>
+    </ul>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Belt</th>
+            <th>Rate</th>
+        </tr>
+        <!-- <tr ng-repeat="ninj in ninjas | filter:searchText" ng-show="ninj.available"> -->
+        <tr ng-repeat="ninj in ninjas | filter:searchText" ng-hide="ninj.available">
+            <td>{{ninj.name}}</td>
+            <td>{{ninj.belt}}</td>
+            <td>{{ninj.rate}}</td>
+        </tr>
+    </table>
+    
+
+    <table class="table table-compact table-striped table-responsive">
+        <thead>
+            <tr>
+                <th style="position: sticky; top: 0;">Name</th>
+                <th style="position: sticky; top: 0;">Belt</th>
+                <th style="position: sticky; top: 0;">Rate</th>
+            </tr>
+        </thead>
+        <!-- <tr ng-repeat="ninj in ninjas | filter:searchText" ng-show="ninj.available"> -->
+        <tbody>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+            <tr ng-repeat="ninj in ninjas" ng-hide="ninj.available">
+                <td>{{ninj.name}}</td>
+                <td>{{ninj.belt}}</td>
+                <td>{{ninj.rate}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <button ng-click="order = 'name'">Order by Name</button>
+    <button ng-click="order = 'belt'">Order by Belt</button>
+    <button ng-click="order = 'rate'">Order by Rate</button>
+    <button ng-click="order = ''">Clear Order</button>
+    <ul>
+        <li ng-repeat="ninj in ninjas | orderBy:order">
+            <div style="display: flex; align-items: center;">
+                <img ng-src="{{ninj.thumb}}" style="width: 50px; margin: 10px 0px;" ng-show="ninj.thumb" >  <span> {{ninj.name}} </span> - <span style="color: {{ninj.belt}};"> {{ninj.belt}} </span> - <span> {{ninj.rate}} </span>
+            </div>
+         
+        </li>
+    </ul>
+
+    <form ng-submit="addNinja()">
+        <label>Name:</label>
+        <input type="text" ng-model="newninja.name">
+        <label>Belt:</label>
+        <input type="text" ng-model="newninja.belt">
+        <label>Rate:</label>
+        <input type="text" ng-model="newninja.rate">
+        <input type="submit" value="Add Ninja">
+    </form>
+
+    <a href="javascript:void(0);" onclick="openLinkInNewTab();">Open Link in New Tab</a>
+
+
+</div>
+
+
+<script>
+    function openLinkInNewTab() {
+      window.location.href = 'http://localhost:8080/files_ninja';
+    }
+</script>

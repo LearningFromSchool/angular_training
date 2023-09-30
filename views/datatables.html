@@ -1,0 +1,55 @@
+<div class="content" ng-controller="dataTablesController">
+
+    <div class="table-responsive">
+
+        <!-- Custom Filters -->
+       
+
+        <table 
+            class="table table-bordered bordered table-striped table-condensed datatable"
+            id="products"
+
+        >
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product ID</th>
+                    <th>Artigo</th>
+                    <th>Lote</th>
+                    <th>Molde</th>
+                    <th>Qty</th>
+                    <th>Qty Disp</th>
+                    <th>Unidade</th>
+                    <th>Estado</th>
+                    <th>Palete</th>
+                    <th>Caixa</th>
+                </tr>
+            </thead>
+            <tbody id="tstock">
+                <!--<tr ng-repeat="temp in stock">
+                    <td style="vertical-align: middle;">
+                        <input type="checkbox" ng-model="temp.checked" ng-change="validaQtdPcs()">
+                    </td>
+                    <td style="vertical-align: middle;">{{temp.product_id}}</td>
+                    <td style="vertical-align: middle;">{{temp.artigo}}</td>
+                    <td style="vertical-align: middle;">{{temp.lote}}</td>
+                    <td style="vertical-align: middle;">{{temp.molde}}</td>
+                    <td style="vertical-align: middle;">                  
+                        <input                  
+                            ng-model="temp.qty"
+                            ng-change="validaQtdPcs()"
+                            value="{{ temp.qty }}"
+                            type="number"
+                            style="border: 1px solid #ccc; width: 50px;"
+                        ><span ng-if="temp.qty != temp.qty_disp">({{ temp.qty_disp }})</span>
+                    </td>
+                    <td style="vertical-align: middle;">{{temp.qty_disp}}</td>
+                    <td style="vertical-align: middle;">{{temp.unidade}}</td>
+                    <td style="vertical-align: middle;">{{temp.estado}}</td>
+                    <td style="vertical-align: middle;">{{temp.palete}}</td>
+                    <td style="vertical-align: middle;">{{temp.caixa}}</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>

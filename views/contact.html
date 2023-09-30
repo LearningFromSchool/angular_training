@@ -1,0 +1,22 @@
+<div class="content">
+    <form action="/contact" method="post" name="contactForm" ng-controller="myCtrl">
+        <input type="text" name="name" ng-model="name" placeholder="Name">
+        <input type="text" name="email" ng-model="email" placeholder="Email">
+        <input type="date" name="date" ng-model="date" placeholder="Date">
+        <input 
+            class="formatted-dates"
+            data-date=""
+            type="date"
+            name="date_change"
+            ng-model="date_change"
+            placeholder="Date"
+            data-date-format="yyyy.mm.dd"
+
+            ng-change = "dateChange()"
+        >
+        My Formatted Date : {{myFormattedDate}}<br>
+        <textarea name="message" ng-model="message" placeholder="Message"></textarea>
+
+        <input type="submit" value="Send">
+    </form>
+</div>

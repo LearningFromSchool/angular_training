@@ -1,0 +1,51 @@
+<!-- Ninjas File Form -->
+<form 
+    action="../files-ninja.php"
+    method="post"
+    enctype="multipart/form-data"
+    name="formNinjas"
+>
+    <input type="text" hidden name="action" value="upload">
+    <input type="text" name="name" placeholder="Name">
+    <input 
+        type="text"
+        name="email" 
+        placeholder="Email" 
+        ng-pattern = "/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"
+        ng-model="email"
+    >
+    <span 
+        style="color:red" ng-show="formNinjas.email.$error.pattern">Invalid email address.</span>
+    <input type="file" name="file[]" multiple  accept="image/png, image/jpeg , image/jpg , docx , doc , pdf , txt , xls , xlsx , csv">  
+    <input type="submit" value="Upload" ng-disabled="formNinjas.email.$error.pattern">
+</form>
+
+<div class="content" ng-controller="myCtrl" ng-init="getFiles()">
+    <div class="row">
+        <div class="col-4" ng-repeat="file in files">
+            <div ng-if = "file.isImage">
+                <img src="{{file.src}}" alt="" width="auto" height="150px;">
+                <a ng-click="deleteFile(file.name)">
+                    <i 
+                        class="fa fa-trash"
+                        style="cursor: pointer; color: red; font-size: 20px; position: absolute;"
+                    >
+                    </i>
+                </a>
+            </div>
+            <div ng-if = "!file.isImage" class="text-center">
+                <a href="{{file.src}}" target="_blank">
+                    <img src="{{file.srcImage}}" alt="" width="auto;" height="50px;">
+                    <br>
+                    {{file.name}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="highcharts-ninjas">
+    a
+    <div id="container_highcharts" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
